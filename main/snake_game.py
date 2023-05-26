@@ -21,14 +21,14 @@ class SnakeGame:
 
         self.silent_mode = silent_mode
         if not silent_mode:
-            pygame.init()
-            pygame.display.set_caption("Snake Game")
-            self.screen = pygame.display.set_mode((self.display_width, self.display_height))
-            self.font = pygame.font.Font(None, 36)
+            pygame.init()#调用前必须初始化
+            pygame.display.set_caption("Snake Game")#设置标题
+            self.screen = pygame.display.set_mode((self.display_width, self.display_height))#设置面板宽高
+            self.font = pygame.font.Font(None, 36)#导入字体
 
             # Load sound effects
-            mixer.init()
-            self.sound_eat = mixer.Sound("sound/eat.wav")
+            mixer.init()#导入音频
+            self.sound_eat = mixer.Sound("sound/eat.wav")#吃的音效
             self.sound_game_over = mixer.Sound("sound/game_over.wav")
             self.sound_victory = mixer.Sound("sound/victory.wav")
         else:
@@ -43,7 +43,7 @@ class SnakeGame:
         self.food = None
         self.seed_value = seed
 
-        random.seed(seed) # Set random seed.
+        random.seed(seed) # Set random seed. 种子
         
         self.reset()
 
