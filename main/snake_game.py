@@ -47,14 +47,14 @@ class SnakeGame:
         
         self.reset()
 
-    def reset(self):
+    def reset(self):#重新开始
         self.snake = [(self.board_size // 2 + i, self.board_size // 2) for i in range(1, -2, -1)] # Initialize the snake with three cells in (row, column) format.
         self.non_snake = set([(row, col) for row in range(self.board_size) for col in range(self.board_size) if (row, col) not in self.snake]) # Initialize the non-snake cells.
         self.direction = "DOWN" # Snake starts downward in each round
         self.food = self._generate_food()
         self.score = 0
 
-    def step(self, action):
+    def step(self, action):#转向
         self._update_direction(action) # Update direction based on action.
 
         # Move snake based on current action.
